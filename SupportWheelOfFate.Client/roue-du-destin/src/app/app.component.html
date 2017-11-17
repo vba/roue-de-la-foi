@@ -1,0 +1,38 @@
+
+<div class="container">
+
+    <div class="page-header row">
+        <h3>
+          {{_viewModel.title}}
+        </h3>
+    </div>
+
+
+    <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon" >Involved persons:</span>
+        <select name="involvedEngineersCount" id="involvedEngineersCount"
+                class="form-control" aria-describedby="sizing-addon"
+                #opt (change)="selectionChange(opt.value)">
+            <option *ngFor="let item of range(4, 98)" [value]="item">
+                {{item}} engineers
+            </option>
+        </select>
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" (click)="turnWheel()">Let's dance!</button>
+        </span>
+    </div>
+
+
+    <div class="row service-list">
+        <div *ngFor="let x of _viewModel.supportDays" class="col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h4>Day: {{x.day.split('T')[0]}}</h4>
+                    <p>Forenoon: <span>{{x.forenoonEngineer.firstName}} <b>{{x.forenoonEngineer.lastName}}</b></span></p>
+                    <p>Afternoon: <span>{{x.afternoonEngineer.firstName}} <b>{{x.afternoonEngineer.lastName}}</b></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

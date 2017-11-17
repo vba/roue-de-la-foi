@@ -11,7 +11,7 @@ namespace SupportWheelOfFate.Core.Queries
             InvolvedEngineersCount = involvedEngineersCount;
         }
 
-        public bool IsValid() => InvolvedEngineersCount > EngineersBoundary.Min.Value &&
-                                 InvolvedEngineersCount < EngineersBoundary.Max.Value;
+        public bool IsValid() => InvolvedEngineersCount >= EngineersBoundary.Min.Value &&
+                                 InvolvedEngineersCount <= EngineersBoundary.Max.Value;
     }
 }
